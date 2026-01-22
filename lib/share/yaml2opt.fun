@@ -2,9 +2,7 @@
 yaml2opt()
 {
   tmux display -p "tmux hello"
-  dump ">>> $@ running..." 
-  #  dump ">>> $$ running..."
-  #  dump ">> losded dump()"
-  #  dump ">> filter: $filter"
-  #  dump ">> yaml: $yaml"
+  dump ">>> yaml2opt running..." 
+  dump ">> filter: $filter"
+  dump ">> yaml: $yaml"
 }

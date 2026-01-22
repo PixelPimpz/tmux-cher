@@ -8,9 +8,9 @@ yaml2opt()
   dump ">> filter: $filter"
   dump ">> yaml: $yaml"
 
-  yq eval "$filter | to_entries[] | ( .var + "=" + .value )" "$yaml" |
-  while IFS="=" read -r var value; do
-    tmux set -g "@$var" "$value"
-    dump "$( tmux show -g @$key )"
+  yq eval "${filter} | to_entries[] | (.key + \"=\" + .value)" "$yaml" |
+  while IFS="=" read -r key value; do
+    tmux set -g "@$key" "$value"
+    dump "$(tmux show -g @$key)"
   done
 }
